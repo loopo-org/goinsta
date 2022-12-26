@@ -1,7 +1,7 @@
 
 ![goinsta logo](https://raw.githubusercontent.com/Davincible/goinsta/v1/resources/goinsta-image.png)
 
-[![GoDoc](https://godoc.org/github.com/Davincible/goinsta/v3?status.svg)](https://godoc.org/github.com/Davincible/goinsta/v3) [![Go Report Card](https://goreportcard.com/badge/github.com/Davincible/goinsta/v3)](https://goreportcard.com/report/github.com/Davincible/goinsta/v3)
+[![GoDoc](https://godoc.org/github.com/loopo-org/goinsta/v3?status.svg)](https://godoc.org/github.com/loopo-org/goinsta/v3) [![Go Report Card](https://goreportcard.com/badge/github.com/loopo-org/goinsta/v3)](https://goreportcard.com/report/github.com/loopo-org/goinsta/v3)
 
 ## Go Instagram Private API
 
@@ -13,7 +13,7 @@ the code in the repository was based on a few year old instagram app version,
 since which a lot has changed, I have taken the courtesy to build upon his 
 great framework and update the code to be compatible with apk v250.0.0.21.109 
 (Aug 30, 2022). Walkthrough docs can be found in the 
-[wiki](https://github.com/Davincible/goinsta/wiki/1.-Getting-Started).
+[wiki](https://github.com/loopo-org/goinsta/wiki/1.-Getting-Started).
 
 If you are missing anything or something is not working as expected please let
 me know through the issues or discussions.
@@ -30,7 +30,7 @@ me know through the issues or discussions.
 
 ### Package installation 
 
-`go get -u github.com/Davincible/goinsta/v3@latest`
+`go get -u github.com/loopo-org/goinsta/v3@latest`
 
 ### Example
 
@@ -40,7 +40,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Davincible/goinsta/v3"
+	"github.com/loopo-org/goinsta/v3"
 )
 
 func main() {  
@@ -63,7 +63,7 @@ func main() {
 }
 ```
 
-For the full documentation, check the [wiki](https://github.com/Davincible/goinsta/v3/wiki/1.-Getting-Started), or run `go doc -all`.
+For the full documentation, check the [wiki](https://github.com/loopo-org/goinsta/v3/wiki/1.-Getting-Started), or run `go doc -all`.
 
 ### Legal
 

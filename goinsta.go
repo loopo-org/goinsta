@@ -15,7 +15,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/Davincible/goinsta/v3/utilities"
+	"github.com/loopo-org/goinsta/v3/utilities"
 )
 
 // Instagram represent the main API handler
@@ -39,7 +39,6 @@ import (
 //
 // Also you can use SetProxy and UnsetProxy to set and unset proxy.
 // Golang also provides the option to set a proxy using HTTP_PROXY env var.
-//
 type Instagram struct {
 	user string
 	pass string
@@ -195,7 +194,8 @@ func (insta *Instagram) SetAdID(id string) {
 }
 
 // SetDevice allows you to set a custom device. This will also change the
-//   user agent based on the new device.
+//
+//	user agent based on the new device.
 func (insta *Instagram) SetDevice(device Device) {
 	insta.device = device
 	insta.userAgent = createUserAgent(device)
@@ -218,10 +218,11 @@ func (insta *Instagram) SetCookieJar(jar http.CookieJar) error {
 // New creates Instagram structure.
 //
 // :params:
-//   username:string
-//   password:string
-//   totp:string  -- OPTIONAL: 2FA private key, aka seed, used to generate 2FA codes
-//                   checks for empty string, so it's safe to pass in an empty string.
+//
+//	username:string
+//	password:string
+//	totp:string  -- OPTIONAL: 2FA private key, aka seed, used to generate 2FA codes
+//	                checks for empty string, so it's safe to pass in an empty string.
 func New(username, password string, totp_seed ...string) *Instagram {
 	// this call never returns error
 	jar, _ := cookiejar.New(nil)
@@ -1165,7 +1166,7 @@ func (insta *Instagram) SetTimeout(t time.Duration) {
 
 // GetMedia returns media specified by id.
 //
-// The argument can be int64 or string
+// # The argument can be int64 or string
 //
 // See example: examples/media/like.go
 func (insta *Instagram) GetMedia(o interface{}) (*FeedMedia, error) {

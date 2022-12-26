@@ -8,7 +8,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Davincible/goinsta/v3"
+	"github.com/loopo-org/goinsta/v3"
 )
 
 func TestUploadPhoto(t *testing.T) {

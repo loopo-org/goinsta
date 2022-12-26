@@ -4,8 +4,6 @@ import (
 	"errors"
 	"math/rand"
 	"testing"
-
-	"github.com/Davincible/goinsta/v3"
 )
 
 func TestSearchUser(t *testing.T) {

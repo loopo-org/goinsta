@@ -3,7 +3,7 @@
 
 > Unofficial Instagram API for Golang
 
-[![Build Status](https://travis-ci.org/Davincible/goinsta.svg?branch=master)](https://travis-ci.org/Davincible/goinsta) [![GoDoc](https://godoc.org/github.com/Davincible/goinsta?status.svg)](https://godoc.org/github.com/Davincible/goinsta) [![Go Report Card](https://goreportcard.com/badge/github.com/Davincible/goinsta)](https://goreportcard.com/report/github.com/Davincible/goinsta) [![Gitter chat](https://badges.gitter.im/goinsta/community.png)](https://gitter.im/goinsta/community)
+[![Build Status](https://travis-ci.org/Davincible/goinsta.svg?branch=master)](https://travis-ci.org/Davincible/goinsta) [![GoDoc](https://godoc.org/github.com/loopo-org/goinsta?status.svg)](https://godoc.org/github.com/loopo-org/goinsta) [![Go Report Card](https://goreportcard.com/badge/github.com/loopo-org/goinsta)](https://goreportcard.com/report/github.com/loopo-org/goinsta) [![Gitter chat](https://badges.gitter.im/goinsta/community.png)](https://gitter.im/goinsta/community)
 
 ### Features
 
@@ -77,7 +77,7 @@ Or
 If you have `GO111MODULE=on`
 
 ```
-$ go get -u github.com/Davincible/goinsta
+$ go get -u github.com/loopo-org/goinsta
 ```
 
 ### Donate

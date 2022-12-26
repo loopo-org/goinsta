@@ -12,8 +12,6 @@ import (
 	"strings"
 	"testing"
 	"time"
-
-	"github.com/Davincible/goinsta/v3"
 )
 
 var errNoAPIKEY = errors.New("No Pixabay API Key has been found. Please add one to .env as PIXABAY_API_KEY")

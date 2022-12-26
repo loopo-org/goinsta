@@ -2,8 +2,6 @@ package tests
 
 import (
 	"testing"
-
-	"github.com/Davincible/goinsta/v3"
 )
 
 func TestPendingFriendships(t *testing.T) {

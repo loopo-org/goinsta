@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Davincible/goinsta/v3/utilities"
+	"github.com/loopo-org/goinsta/v3/utilities"
 )
 
 // Account is personal account object
@@ -309,8 +309,8 @@ func (account *Account) Following(query string, order FollowOrder) *Users {
 
 // Feed returns current account feed
 //
-// 	params can be:
-// 		string: timestamp of the minimum media timestamp.
+//	params can be:
+//		string: timestamp of the minimum media timestamp.
 //
 // minTime is the minimum timestamp of media.
 //
@@ -389,7 +389,6 @@ func (account *Account) Saved() *SavedMedia {
 // first_name -- is actually your full name
 // biography
 // email
-//
 func (account *Account) UpdateProfile(form map[string]string) error {
 	insta := account.insta
 	query := map[string]string{

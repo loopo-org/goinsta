@@ -4,8 +4,6 @@ import (
 	"math/rand"
 	"testing"
 	"time"
-
-	"github.com/Davincible/goinsta/v3"
 )
 
 func TestFeedUser(t *testing.T) {

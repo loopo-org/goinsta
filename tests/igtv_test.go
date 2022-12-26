@@ -3,8 +3,6 @@ package tests
 import (
 	"testing"
 	"time"
-
-	"github.com/Davincible/goinsta/v3"
 )
 
 func TestIGTVChannel(t *testing.T) {

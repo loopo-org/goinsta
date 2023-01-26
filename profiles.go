@@ -13,9 +13,9 @@ type Profiles struct {
 }
 
 // Profile represents an instagram user with their various properties, such as
-//   their account info, stored in Profile.User (a *User struct), feed, stories,
-//   Highlights, IGTV posts, and friendship status.
 //
+//	their account info, stored in Profile.User (a *User struct), feed, stories,
+//	Highlights, IGTV posts, and friendship status.
 type Profile struct {
 	User       *User
 	Friendship *Friendship
@@ -27,15 +27,16 @@ type Profile struct {
 }
 
 // VisitProfile will perform the same request sequence as if you visited a profile
-//   in the app. It will first call Instagram.Search(user), then register the click,
-//   and lastly visit the profile with User.VisitProfile() and gather (some) posts
-//   from the user feed, stories, grab the friendship status, and if available IGTV posts.
+//
+//	in the app. It will first call Instagram.Search(user), then register the click,
+//	and lastly visit the profile with User.VisitProfile() and gather (some) posts
+//	from the user feed, stories, grab the friendship status, and if available IGTV posts.
 //
 // You can access the profile info from the profile struct by calling Profile.Feed,
-//   Profile.Stories, Profile.User etc. See the Profile struct for all properties.
 //
+//	Profile.Stories, Profile.User etc. See the Profile struct for all properties.
 func (insta *Instagram) VisitProfile(handle string) (*Profile, error) {
-	sr, err := insta.Search(handle)
+	sr, err := insta.Search(handle, true)
 	if err != nil {
 		return nil, err
 	}
@@ -52,16 +53,18 @@ func (insta *Instagram) VisitProfile(handle string) (*Profile, error) {
 }
 
 // VisitProfile will perform the same request sequence as if you visited a profile
-//   in the app. Thus it will gather (some) posts from the user feed, stories,
-//   grab the friendship status, and if available IGTV posts.
+//
+//	in the app. Thus it will gather (some) posts from the user feed, stories,
+//	grab the friendship status, and if available IGTV posts.
 //
 // You can access the profile info from the profile struct by calling Profile.Feed,
-//   Profile.Stories, Profile.User etc. See the Profile struct for all properties.
+//
+//	Profile.Stories, Profile.User etc. See the Profile struct for all properties.
 //
 // This method will visit a profile directly from an already existing User instance.
 // To visit a profile without the User struct, you can use Insta.VisitProfile(user),
-//   which will perform a search, register the click, and call this method.
 //
+//	which will perform a search, register the click, and call this method.
 func (user *User) VisitProfile() (*Profile, error) {
 	p := &Profile{User: user}
 
@@ -103,50 +106,50 @@ func (user *User) VisitProfile() (*Profile, error) {
 	}(wg)
 
 	// Fetch Stories
-	wg.Add(1)
-	go func(wg *sync.WaitGroup) {
-		defer wg.Done()
-		stories, err := user.Stories()
-		p.Stories = stories
-		if err != nil {
-			errChan <- err
-		}
-	}(wg)
+	//wg.Add(1)
+	//go func(wg *sync.WaitGroup) {
+	//	defer wg.Done()
+	//	stories, err := user.Stories()
+	//	p.Stories = stories
+	//	if err != nil {
+	//		errChan <- err
+	//	}
+	//}(wg)
 
 	// Fetch Highlights
-	wg.Add(1)
-	go func(wg *sync.WaitGroup) {
-		defer wg.Done()
-		h, err := user.Highlights()
-		p.Highlights = h
-		if err != nil {
-			errChan <- err
-		}
-	}(wg)
+	//wg.Add(1)
+	//go func(wg *sync.WaitGroup) {
+	//	defer wg.Done()
+	//	h, err := user.Highlights()
+	//	p.Highlights = h
+	//	if err != nil {
+	//		errChan <- err
+	//	}
+	//}(wg)
 
 	// Fetch Featured Accounts
-	wg.Add(1)
-	go func(wg *sync.WaitGroup) {
-		defer wg.Done()
-		_, err := user.GetFeaturedAccounts()
-		if err != nil {
-			user.insta.warnHandler(err)
-		}
-	}(wg)
+	//wg.Add(1)
+	//go func(wg *sync.WaitGroup) {
+	//	defer wg.Done()
+	//	_, err := user.GetFeaturedAccounts()
+	//	if err != nil {
+	//		user.insta.warnHandler(err)
+	//	}
+	//}(wg)
 
 	// Fetch IGTV
-	wg.Add(1)
-	go func(wg, info *sync.WaitGroup) {
-		defer wg.Done()
-		info.Wait()
-		if user.IGTVCount > 0 {
-			igtv, err := user.IGTV()
-			if err != nil {
-				errChan <- err
-			}
-			p.IGTV = igtv
-		}
-	}(wg, info)
+	//wg.Add(1)
+	//go func(wg, info *sync.WaitGroup) {
+	//	defer wg.Done()
+	//	info.Wait()
+	//	if user.IGTVCount > 0 {
+	//		igtv, err := user.IGTV()
+	//		if err != nil {
+	//			errChan <- err
+	//		}
+	//		p.IGTV = igtv
+	//	}
+	//}(wg, info)
 
 	wg.Wait()
 	select {
@@ -166,9 +169,9 @@ func newProfiles(insta *Instagram) *Profiles {
 
 // ByName return a *User structure parsed by username.
 // This is not the preffered method to fetch a profile, as the app will
-//   not simply call this endpoint. It is better to use insta.Search(user),
-//   or insta.Searchbar.SearchUser(user).
 //
+//	not simply call this endpoint. It is better to use insta.Search(user),
+//	or insta.Searchbar.SearchUser(user).
 func (prof *Profiles) ByName(name string) (*User, error) {
 	body, err := prof.insta.sendSimpleRequest(urlUserByName, name)
 	if err == nil {

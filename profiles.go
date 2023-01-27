@@ -40,16 +40,25 @@ func (insta *Instagram) VisitProfile(handle string) (*Profile, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	var result *TopSearchItem
 	for _, r := range sr.Results {
 		if r.User != nil && r.User.Username == handle {
-			err = r.RegisterClick()
-			if err != nil {
-				return nil, err
-			}
-			return r.User.VisitProfile()
+			result = r
 		}
 	}
-	return nil, errors.New("Profile not found")
+
+	if result == nil && len(sr.Results) > 0 {
+		result = sr.Results[0]
+	} else if result == nil {
+		return nil, errors.New("Profile not found")
+	}
+
+	err = result.RegisterClick()
+	if err != nil {
+		return nil, err
+	}
+	return result.User.VisitProfile()
 }
 
 // VisitProfile will perform the same request sequence as if you visited a profile
